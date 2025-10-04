@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZA ROYAL WOOD</title>
+    <link rel="stylesheet" href="surbhi.css">
+    <link rel="stylesheet" href="utils.css">
+    <style>:root {
+    --main-bg-color: #2874f0;
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+   
+}
+
+header {
+    /* height: 58px;
+    background-color: #86b3fb; */
+    /* height: 100px;
+    width: 100%;
+    background: linear-gradient(rgb(115, 130, 137)); */
+}
+
+nav ul {
+    height: 58px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 88px;
+    padding: 0 25px;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 0 23px;
+}
+
+
+nav ul li a:hover {
+
+    color: rgb(201, 197, 251);
+    /* text-decoration: none; */
+    font-weight: bold;
+    /* font-size: 40px;
+    padding: 10px 20px; */
+}
+
+.search {
+    display: flex;
+    align-items: center;
+
+}
+
+.search input {
+    width: 599px;
+    height: 30px;
+    border: radius 2px;
+    margin: 0 16px 0 56px;
+    padding: 0 12px;
+
+
+}
+
+.slider {
+    width: 80vw;
+    height: 25vw;
+    /* margin: auto; */
+    display: flex;
+    margin: 12px 0 0 545px;
+overflow: hidden;
+
+}
+
+.card img:hover {
+    /* max-width: 91vw;
+    margin: auto;
+    margin: 25px 0 0 25px; */
+    transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.card {
+    width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s;
+  height: 300px;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px;
+    animation: zoomIn 0.5s;
+  }
+.lightbox {
+    display: none;
+      position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+   }
+
+
+
+.card-item {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 15px;
+}
+.cards{
+ display: flex;
+
+ align-items: center;
+
+}
+
+.container {
+    min-height: calc(100vh - 58px - 12vh);
+    /* width: 70vw;
+    height: 20vw;
+    margin: auto;
+    display: flex; */
+}
+
+footer {
+    background-color: rgba(178, 190, 195,1.0);
+    height: 58px;
+    color: rgb(0, 0, 0);
+}
+.lines{
+    color: #011028;
+}
+.product-img{
+    width: 226px;
+    height: 250px;object-fit: cover;
+    border-radius: 10px;
+}
+.card ul li a {
+
+    font-weight: bold;
+    font-size: 40px;
+    padding: 10px 20px;
+}
+
+
+
+/* body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.slider img{
+    width: 100%;
+    height: auto;
+    display: block;
+
+}
+.lines{
+    text-align: center;
+    margin: 20px 0;
+}
+.lines h1{
+    margin: 0;
+    font-size: 2rem;
+}
+.lines p{
+    margin: 5px 0 20px 0;
+    font-size: 1.2rem;
+} */
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;  /* maintain aspect ratio */
+  border-radius: 10px;
+}
+/* Tablets */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr; /* single column on small phones */
+  }
+  h2 {
+    font-size: 1.5rem;
+}
+}
+.flex-all-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.btn{
+    padding: 5px 10px;
+  color: white;
+  background: rgb(201, 197, 251);
+  border: 2px solid white;
+  border-radius: 7px;
+  cursor: pointer
+}
+.my-2{
+  margin: 26px;
+}
+.my-1{
+  margin: 5px 0;
+}
+.text-center{
+  text-align: center
+
+}
+</style>
+
+  
+
+</head>
+
+<body></body>
+
+<header>
+    </div>
+    <nav>
+        <!-- <div class="logo">
+            <img src="za logo.png" alt="">
+        </div> -->
+        <!-- <ul>
+            <li><a href="Welcome to ZAROYAL WOOD">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li> <a href="tel:+919756118550" ,"+918006711968">Contact us</a></li>
+          
+        </ul> -->
+        <!-- <div class="search">
+            <input type="text" name="" id="" placeholder="Search Hear">
+
+            <button class="btn">Search</button>
+        </div> -->
+    </nav>
+    
+</header>
+<main>
+    
+    <!-- <div class="container"> -->
+        <!-- <div class="slider">
+            <img src="https://i.pinimg.com/originals/88/83/ca/8883caee49bea8605986019fe232bc90.jpg">
+        </div> -->
+
+        <H1>
+
+            <div class="lines">
+                <div>
+                    <H1>
+                        <CEnter>ZA</CEnter>
+                    </H1>
+                </div>
+                <p class="text-center">ROYAL WOOD</p>
+
+            </div>
+        </H1>
+
+        <div class="card">
+            <h1 class="my-2">Wood & Panel Ceiling</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://img.interiorcompany.com/interior/webproduct/848638709055075607936.png?aio=w-768;"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing panal ceiling</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://media.designcafe.com/wp-content/uploads/2023/04/26161343/Bedroom-pvc-ceiling-design-in-wooden-texture.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Ceiling of the Room</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://artfasad.com/wp-content/uploads/2023/10/pvc-panel-ceiling-design-for-bedroom-11.jpg.webp"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Ceiling of the wall</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.asenseinterior.com/assets/mediafile/bedroom_gypsum_false_ceiling_designs.webp"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Ceiling of the Room</p>
+                        <p class="text-center my-1">Min 30% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.livspace-cdn.com/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jas-1657179080-NnXAg/mbr-1657190156-S8bl9/69-1663826670-qe6VM.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Ceiling of the bad Room</p> -->
+                        <!-- <p class="text-center my-1">Min 30% off</p> -->
+                        <!-- <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.ytimg.com/vi/XL-hO8CD1so/sddefault.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Ceiling of the Room</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">Wood kitchen design </h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://media.designcafe.com/wp-content/uploads/2020/10/31120130/wooden-modular-kitchen-design.jpg"
+                        class="product-img" alt="kitchen">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing kitchen with Wood</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/375504357/XR/VN/UT/191113573/wooden-modular-kitchen-cabinets-500x500.jpeg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">List of The Best Wood for Kitchen Cabinets : Kitchen Wood</p> -->
+                        <!-- <p class="text-center my-1">Min 25% off</p> -->
+                        <!-- <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/474x/bb/a6/d1/bba6d14f27cba3f3b4e04eaeb73ad1cf.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">ARA HOME: 27 Modern Kitchen Interior Design That You Have to Try</p> -->
+                        <!-- <p class="text-center my-1">Min 20% off</p> -->
+                        <!-- <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://media.designcafe.com/wp-content/uploads/2020/10/30144224/contemporary-classic-kitchen-cabinets.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">High Gloss Flat Panel White Modular Modern kitchen Cabinets Modern
+                            Kitchen Furniture Luxury Designs</p> -->
+                        <!-- <p class="text-center my-1">Min 30% off</p> -->
+                        <!-- <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/modular-kitchen-cabinets-20250204122336844.png"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Modular Kitchen Cabinets</p>
+                        <p class="text-center my-1">Min 30% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448001433/TZ/QP/JI/69172600/modular-kitchen-cabinets-500x500.jpg"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden Modern Modular Kitchen Cabinets at ₹ 1200/sq</p> -->
+                        <!-- <p class="text-center my-1">Min 25% off</p> -->
+                        <!-- <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">LCD Panel desing</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://www.madonnahomesolutions.com/wp-content/uploads/2022/03/68000.jpg" class="product-img"
+                        alt="LCD">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing LCD panal</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://assets-news.housing.com/news/wp-content/uploads/2022/11/25102520/image5-92.png"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">LCD Panel in the Room</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/736x/10/11/5f/10115ff87c0d28d48afb80f49e5e43c1.jpg" class="product-img"
+                        alt="LCD">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">LCD panel of the wall</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.regalokitchens.com/images/design/lcd-panel/02.jpg"
+                        class="product-img" alt="LCD">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Premium LCD panel </p>
+                        <p class="text-center my-1">Min 30% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://lavispace.com/wp-content/uploads/2024/06/LCD-Panel-Design-for-Living-Room-1-1024x1024.png"
+                        class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">LCD panelthe bad Room</p>
+                        <p class="text-center my-1">Min 30% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://urbandesignco.in/lcd-uploads/04.jpg" class="product-img" alt="Wood">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">LCD panel of drowing area</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">Good Furnitur</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://m.media-amazon.com/images/I/711BSErd3lL._UF894,1000_QL80_.jpg"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Best Bad quality</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/1200x/9e/ee/ce/9eeeced00a2d043c9f35ffdfd9e67ebf.jpg"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Bad</p>
+                        <p class="text-center my-1">Min 30% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/736x/8c/b4/71/8cb4710459e3d9d1e6cef3b6c69759a7.jpg"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Good quality bad</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://woodentwist.com/cdn/shop/products/untitled.1274.jpg?v=1743288748"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Comfortable bad</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.ryancreativeliving.com/wp-content/uploads/2024/11/Platform-Beds-%E2%80%93-Sleek-and-Modern.jpg"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Comfortable bad</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.woodenstreet.de/image/cache/data/bed-with-storage/ferguson-bed-with-storage/walnut/updated/new-logo/new+-3D/12-750x650.jpg"
+                        class="product-img" alt="good Furnitur">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden Bad</p>
+                        <p class="text-center my-1">Min 25% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">Wooden Almirah & Coward </h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/564x/72/95/7b/72957b007831bdff661001ff22066066.jpg"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden Almirah </p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://assets-news.housing.com/news/wp-content/uploads/2022/12/25033532/Trending-small-almirah-designs-7.png"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">A1 Almirah</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2025/8/536431531/ER/AH/US/90210709/maroon-wooden-wall-fixing-almirah.jpeg"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Best Coward & Best quality</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://m.media-amazon.com/images/I/71uA69gi50L._UF894,1000_QL80_.jpg"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">No.1 Almirah& quality</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.99acres.com/microsite/wp-content/blogs.dir/6161/files/2023/06/MDF-Almirah-Design.jpg"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">With bad room Coward</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1672137233327-37b0c1049e77?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FyZHJvYmUlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D"
+                        class="product-img" alt="Wooden Almirah ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1"></p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">Wooden Dressing Tables</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://i.ytimg.com/vi/jJthXkl-91U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLApAHxUtBgh8ttEjFthV0Ol99fbOg"
+                        class="product-img" alt="Wooden Dressing Table ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://i.pinimg.com/736x/75/a2/3a/75a23ad17ba9fb728fce1c96cbc45b9d.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Modern Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/303490030/UN/HO/GZ/134644416/modular-wooden-dressing-table-500x500.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">A1 Comfortable price Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/415528055/EU/DE/IM/50638901/kitchen-500x500.jpeg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Bedroom Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.jdmagicbox.com/quickquotes/images_main/wooden-dressing-table-with-side-mirror-2170243623-dcagjevq.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden No.1 quality & table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTbQbNgumeWh6-fkRJn85j_G5IBp01mxhXeSskWRyqC4rZbQJeApepgoFbK8DlcBHKOt1j1Oiu3_BUaJpBwM4vw-c7ODwAAZStqnjcGCLE"
+                        class="product-img" alt="Wooden Dressing Table ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Premium Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+         <div class="card">
+            <h1 class="my-2">Build an office from Wood</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://cdn.decorilla.com/online-decorating/wp-content/uploads/2020/12/Zoom-ready-home-office-backgrounds-by-Decorilla-1024x574.jpg?width=900"
+                        class="product-img" alt="Wooden Dressing Table ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.marazzitile.co.uk/app/uploads/2025/06/Marazzi_Room_010-1350x759.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Modern Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://royaletouche.gumlet.io/wp-content/uploads/2024/09/27123301/interior-design-for-office1.jpg?compress=true&quality=80&w=1500&dpr=2.6"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">A1 Comfortable price Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://cargaison-brands.stream.prepr.io/4ma6285la496/w_1099/boss-cabin-interior-design.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Bedroom Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/OW/NW/XF/17251528/office-interior-designing-service-1000x1000.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden No.1 quality & table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://www.magicspacedesigns.com/wp-content/uploads/2025/07/small-office-interior-design-ideas.webp"
+                        class="product-img" alt="Wooden Dressing Table ">
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Premium Dressing table</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="my-2">Wooden Doors</h1>
+            <div class="cards">
+                <div class="card-item">
+                    <img src="https://goltava.com/wp-content/uploads/2024/05/Buy-New-Design-Single-Wood-Door-Simple-Designs-House-Hotel-Indoor-Room-HDF-Flush-Doors-in-Nigeria-Online.png"
+                        class="product-img" alt="Wooden Doors ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Prime Doors</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://m.media-amazon.com/images/I/71Ebq+Y3GfL.jpg" class="product-img"
+                        alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Amzing Doors</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.livspace-cdn.com/w:3840/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/design-ideas-thumbnails-1628773921-7vSz1/jas-2025-1752131881-hKij1/dd-1752137576-R3Kbr/31-1757089805-i2MqK.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">A1 Comfortable price Doors</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://s.alicdn.com/@sc04/kf/Hf80e979483484e0096fe771fd0b6c8928/China-Top-Factory-Customization-Front-Wood-Door-Teak-Wood-Single-Door-Design-House-Exterior-Entrance-Timber-Pivot-Door.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Bedroom Doors</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://m.media-amazon.com/images/I/71Ws9h9ujCL._UF894,1000_QL80_.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Wooden No.1 quality & Doors</p>
+                        <p class="text-center my-1">Min 20% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="https://assets-news.housing.com/news/wp-content/uploads/2023/03/24150126/Single-door-design-ideas-for-your-house-entrance-09.jpg"
+                        class="product-img" alt="Wooden Dressing Table ">
+
+                    <div class="lines">
+                        <!-- <p class="text-center my-1">Premium Doors</p>
+                        <p class="text-center my-1">Min 10% off</p>
+                        <p class="text-center my-1">Booking Now</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</main>
+<div class="lightbox" id="lightbox">
+  <span class="close" id="close">&times;</span>
+  <img id="lightbox-img" src="">
+  <script>
+    const cardImages = document.querySelectorAll('.card img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close');
+
+  cardImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+</div>
+<!-- <footer class="flex-all-center">
+    <p> &copy; MR.ANAS</p>
+</footer> -->
+</body>
+</html>
