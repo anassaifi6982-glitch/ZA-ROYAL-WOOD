@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us zaroyalwood</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color:#003267;;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        /* Team slider */
+        .team-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+        }
+
+        .team-member {
+            flex: 0 0 250px;
+            background: #f1f1f1;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Achievements animation */
+        .achievement {
+            background: #003267;;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .achievement.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CTA button */
+        .cta {
+            text-align: center;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #003267;;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>About Us</h1>
+
+    <div class="section">
+        <h2>Our Mission & Vision</h2>
+        <p><strong>Mission:</strong> "Za Royal Wood: Tradition in every grain, modernity in every design. We create products that make your home and life truly special."</p>
+        <p><strong>Vision:</strong> "To become a leading name in premium wooden craftsmanship, delivering innovative designs that combine durability, elegance, and sustainability, while creating lasting value for our customers."</p>
+    </div>
+
+    <div class="section">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Custom woodwork & Design</li>
+            <li>Wood treatment & finishing</li>
+            <li>Premium Wood supply </li>
+            <li>Strong and elegant materials</li>
+            <li>Timely delivery and reliable Services</li>
+            <li> Custom design for homes, offices and shops</li>
+            <li>personalized size, color,and style options</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Our Team</h2>
+        <div class="team-slider">
+            <div class="team-member">
+                <img src="papa ji 1.jpg" alt="Founder">
+                <h3>Mr. Zafruddin</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="me.jpg" alt="Team Member">
+                <h3>Mr.Anas</h3>
+                <p>Project Manager</p>
+            </div>
+            <!-- <div class="team-member">
+                <img src="team2.jpg" alt="Team Member">
+                <h3>Mr. Raj Verma</h3>
+                <p>Lead Developer</p>
+            </div> -->
+            <!-- Add more members as needed -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Achievements</h2>
+        <div class="achievement">Served 750+ clients successfully</div>
+        <div class="achievement">Innovative designs and custom solutions</div>
+        <div class="achievement">Timely delivery of premium quality wood products </div>
+        <div class="achievement"> Eco-friendly practices implemented</div>
+    </div>
+
+    <div class="cta">
+        <a href="tel:+918006711968">Contact Us</a>
+    </div>
+</div>
+
+<script>
+    // Animate achievements on scroll
+    const achievements = document.querySelectorAll('.achievement');
+    window.addEventListener('scroll', () => {
+        achievements.forEach(ach => {
+            const rect = ach.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 50) {
+                ach.classList.add('visible');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
