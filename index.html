@@ -1,224 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Za Royal Wood</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#fdfcfb;color:#333;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interior Design Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #000000;
+      --bg: #f5f5f5;
+      --card: #fff;
+      --accent: #09002a;
+      --transition: 0.3s ease;
+    }
 
-/* Navbar */
-header{background:#000000;color:#fff;padding:15px 0px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
-header h1{font-size:24px;font-weight:bold;}
-nav ul{list-style:none;display:flex;gap:25px;}
-nav ul li a{text-decoration:none;color:#fff;font-weight:500;transition:0.3s;}
-nav ul li a:hover{color:#f5d7b5;}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Hero */
-.hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px;background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://thumbs.dreamstime.com/b/modern-home-relax-room-interior-couch-coffee-table-mockup-frame-beige-living-sofa-carpet-hardwood-floor-scandinavian-295951879.jpg') center/cover no-repeat;color:white;min-height:90vh;position:relative;}
-.hero h1{font-size:48px;min-height:60px;margin-bottom:20px;}
-.hero p{font-size:20px;margin-bottom:30px;}
-.hero button{background:#000000;padding:12px 25px;color:white;border:none;border-radius:6px;cursor:pointer;transition:0.3s;}
-.hero button:hover{background:#01153d;}
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
 
-/* About */
-.about{padding:80px 20px;background:#f8f5f2;text-align:center;}
-.about h2{font-size:36px;color:#000000;margin-bottom:20px;}
-.about p{max-width:800px;margin:0 auto;font-size:18px;line-height:1.8;}
+    /* Navbar */
+    header {
+      background: var(--card);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
-/* Services */
-.services{padding:80px 20px;text-align:center;}
-.services h2{font-size:36px;color:#000000;margin-bottom:40px;}
-.service-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.service{background:white;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);transition:0.3s;cursor:pointer;}
-.service:hover{transform:translateY(-8px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
-.service img{width:100%;border-radius:8px;margin-bottom:15px;}
-.service h3{margin-bottom:10px;color:#000000;}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px 24px;
+    }
 
-/* Gallery */
-.gallery{padding:80px 20px;text-align:center;background:#f0ece7;}
-.gallery h2{font-size:36px;color:#000000;margin-bottom:30px;}
-.gallery-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-.gallery-box img{width:100%;border-radius:8px;cursor:pointer;transition:transform 0.3s;}
-.gallery-box img:hover{transform:scale(1.05);}
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+    }
 
-/* Testimonials */
-.testimonials{padding:80px 20px;text-align:center;}
-.testimonials h2{font-size:36px;color:#3e2f2f;margin-bottom:40px;}
-.testimonial-box{max-width:800px;margin:0 auto;position:relative;overflow:hidden;}
-.testimonial{display:none;font-size:18px;line-height:1.6;}
-.testimonial.active{display:block;}
-.testimonial p{margin-bottom:15px;font-style:italic;}
-.testimonial h4{color:#3e2f2f;font-weight:600;}
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 16px;
+    }
 
-/* Contact */
-.contact{padding:80px 20px;text-align:center;}
-.contact h2{font-size:36px;color:#000000;margin-bottom:30px;}
-.contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:15px;}
-.contact input,.contact textarea{padding:12px;border-radius:6px;border:1px solid #ccc;font-size:16px;}
-.contact button{background:#000000;color:white;border:none;padding:12px;font-size:16px;border-radius:6px;cursor:pointer;transition:0.3s;}
-.contact button:hover{background:#0e0542;}
+    nav ul li a {
+      text-decoration: none;
+      color: var(--secondary);
+      transition: var(--transition);
+    }
 
-/* Footer */
-footer{background:#3e2f2f;color:white;text-align:center;padding:20px;margin-top:50px;}
+    nav ul li a:hover {
+      color: var(--primary);
+    }
 
-/* Modal */c:\Users\anass\OneDrive\Desktop\ZA ROYAL WOOD
-#modal{display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;}
-#modal span{position:absolute;top:20px;right:40px;color:white;font-size:40px;cursor:pointer;}
-#modal img{max-width:90%;max-height:90%;border-radius:8px;}
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 80vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://algedra.com.tr/assets/imgs/upload2/space%20planning%20amended%20blog/spaceplanningininteriordesig_680a1aaabe399.jpg') no-repeat center/cover;
+      color: #fff;
+    }
 
-/* Scroll Button */
-#scrollTopBtn{position:fixed;bottom:30px;right:30px;background:#000000;color:white;border:none;padding:12px 16px;border-radius:50%;cursor:pointer;display:none;font-size:18px;z-index:1000;}
-#scrollTopBtn:hover{background:#000000;}
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+      animation: fadeInDown 1s ease forwards;
+      opacity: 0;
+    }
 
-@media(max-width:900px){.hero{padding:50px 20px;}}
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 24px;
+      animation: fadeInUp 1s ease 0.5s forwards;
+      opacity: 0;
+    }
 
+    .hero a {
+      padding: 12px 24px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
+      animation: fadeInUp 1s ease 1s forwards;
+      opacity: 0;
+    }
 
-</style>
+    .hero a:hover {
+      background: var(--accent);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    section {
+      padding: 60px 24px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about {
+      padding: 80px 20px;
+      background: #f8f5f2;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* Projects Section .projects{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:24px;} .project-card{background:var(--card); border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); transform:translateY(0); transition:var(--transition);} .project-card img{width:100%; height:200px; object-fit:cover;} .project-card h3{padding:12px; color:var(--primary);} .project-card p{padding:0 12px 12px; color:var(--secondary);} .project-card:hover{transform:translateY(-8px); box-shadow:0 8px 20px rgba(0,0,0,0.2);} */
+
+    /* Contact Section */
+    .contact-form {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .contact-form button {
+      margin-top: 12px;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .contact-form button:hover {
+      background: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    /* Responsive */
+    @media (max-width:768px) {
+      .about {
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+    }
+
+    /* Services */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 36px;
+      color: #000000;
+      margin-bottom: 40px;
+    }
+
+    .service-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      margin-bottom: 10px;
+      color: #000000;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f0ece7;
+    }
+
+    .gallery h2 {
+      font-size: 36px;
+      color: #000000;
+      margin-bottom: 30px;
+    }
+
+    .gallery-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-box img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-box img:hover {
+      transform: scale(1.05);
+    }
+
+    .social-links {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .social-links a {
+      color: black;
+      font-size: 20px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+    }
+  </style>
+
 </head>
+
 <body>
 
-<!-- Navbar -->
-<header>
-<!-- <h1>ZA ROYAL WOOD</h1> -->
-<nav>
-<ul<ul style="list-style:none; display:flex; gap:20px; align-items:center; margin:0; padding:0;"></ul>>
-<b><li><a href="#">Home</a></li></b>
-<b><li><a href="saifi.html">AboutUs</a></li></b>
-<!-- <b><li><a href="#services">Services</a></li></b> -->
-<b><li><a href="bhai.html">Gallery</a></li></b>
-<b><li><a href="tel:+919756118550">Contact</a></li></b>
-<li>
-        <!-- Instagram icon -->
+  <head>
+    <!-- Other head content -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <!-- <header>
 
-      <a href="https://www.instagram.com/zaroyalwood/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-             alt="Instagram"
-             width="22"
-             height="22"
-             style="display:block;">
-      </a>
-    </li>
-  </ul>
-</ul>
-
-</nav>
-</header>
-    <!-- Instagram Icon after Contact -->
- 
-    <!-- <nav>
+  <div class="social-links">
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/yourpage" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</header> -->
+  <header>
+    <nav>
+      <b>
+        <div class="logo">ZA ROYAL WOOD</div>
+      </b>
+      <b>
         <ul>
-            <li><a href="arsh.html">Home</a></li>
-            <li><a href="anas.html">Gallery</a></li>
-            <li><a href="saifi.html">About Us</a></li>
-            <li><a href="tel:+919756118550">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="saifi.html">About</a></li>
+          <li><a href="surbhi.html">Gallery</a></li>
+          <li><a href="tel:+918006711968">Contact</a></li>
+          <li>
+            <!-- Instagram icon -->
+
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </a>
         </ul>
-    </nav> -->
+      </b>
+    </nav>
+  </header>
+  <section class="hero">
+    <div>
+      <h1 id="typewriter"></h1>
+      <p>Crafted with passion, designed for luxury and comfort</p>
+      <!-- <button onclick="alert('Explore Our Collection')">Explore Collection</button> -->
+      <a href="#contact">Get in Touch</a>
 
-<!-- Hero Section with Typewriter -->
-<section class="hero">
-<div>
-<h1 id="typewriter"></h1>
-<p>Crafted with passion, designed for luxury and comfort</p>
-<button onclick="alert('Explore Our Collection')">Explore Collection</button>
-</div>
-</section>
+    </div>
+    <section></section>
+  </section>
 
+  <!-- <section class="hero" id="home">
+    <h1>Design Your Dream Space</h1>
+    <p>Modern & Elegant Interior Design Solutions</p>
+    <a href="#contact">Get in Touch</a>
+  </section> -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>Za Royal Wood is dedicated to crafting premium wooden furniture and interiors that combine timeless elegance with
+      modern design. With years of expertise, we ensure high-quality craftsmanship and tailor-made solutions for your
+      home and office.</p>
+  </section>
+  </section>
+  <section id="Services">
+    <h1 style="text-align:center; color:var(--primary); margin-bottom:24px;">Our Services</h1>
+    <div class="Services">
+      <section class="services" id="services">
+        <!-- <h2>Our Services</h2> -->
+        <div class="service-box">
+          <div class="service"><img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+              alt="Custom Furniture">
+            <h3>Custom Furniture</h3>
+            <p>Bespoke furniture designed to match your style.</p>
+          </div>
+          <div class="service"><img
+              src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf4RwM0fZ8E7iRo7H-zpmtsn4C5jZ_t5c_UgLB-ZhDoZ36MWN-WTG5pSRJnewqOKadEmlRrFFdLD726BPt7VMIXzL0CSsRsLdW31EPo7JBAV6wHaiLbhqTv_aymSca190FxEcE?key=UB0ofX9hzstyvf9pPHYNVw"
+              alt="Interior">
+            <h3>Interior Design</h3>
+            <p>Transform your living spaces with creativity.</p>
+          </div>
+          <div class="service"><img
+              src="https://algedra.com.tr/assets/imgs/upload2/space%20planning%20amended%20blog/spaceplanningininteriordesig_680a1aaabe399.jpg"
+              alt="Delivery">
+            <h3> Green Interior Modern Sofa Stock</h3>
+            <p>for all your orders.</p>
+          </div>
+        </div>
+      </section>
+      <!-- Gallery -->
+  </section>
+  <section id="Services">
+    <h1 style="text-align:center; color:black; margin-bottom:24px;">Our Gallery</h1>
+    <div class="Services">
+      <section class="services" id="services">
+        <!-- <h2>Our Services</h2> -->
+        <div class="service-box">
+          <div class="service"><img
+              src="https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/bedroom_wardrobe_design_03_6ed6ee2f08.webp"
+              alt="Custom Furniture">
+          </div>
+          <div class="service"><img
+              src="https://cdn.shopify.com/s/files/1/0096/4594/9013/files/Bedroom_Sets_Design_Design_Of_Bed_Room_Modern_Designs_Of_Bed_Simple_Designs_Of_Bed_f09db2d9-6ca0-4500-8041-f60321398b14.jpg?v=1651294704"
+              alt="Interior">
+          </div>
+          <div class="service"><img
+              src="https://www.nobroker.in/blog/wp-content/uploads/2025/01/tv-panel-design-with-concealed-storage-1200x673.webp"
+              alt="Delivery">
 
+          </div>
+        </div>
+      </section>
+      <!-- <section class="gallery" id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-box">
+          <img
+            src="https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/bedroom_wardrobe_design_03_6ed6ee2f08.webp"
+            alt="Gallery1" onclick="openModal(this.src)">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0096/4594/9013/files/Bedroom_Sets_Design_Design_Of_Bed_Room_Modern_Designs_Of_Bed_Simple_Designs_Of_Bed_f09db2d9-6ca0-4500-8041-f60321398b14.jpg?v=1651294704"
+            alt="Gallery2" onclick="openModal(this.src)">
+          <img
+            src="https://www.nobroker.in/blog/wp-content/uploads/2025/01/tv-panel-design-with-concealed-storage-1200x673.webp"
+            alt="Gallery3" onclick="openModal(this.src)">
+        </div>
+      </section> -->
 
+  </section>
+  <section id="contact">
+    <h2 style="text-align:center; color:var(--primary); margin-bottom:24px;">Contact Us</h2>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="status" style="margin-top:12px;color:var(--primary);"></p>
+    </form>
+  </section>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="tel:+918006711968" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+  </div>
+  </section>
 
-<!-- About Us -->
-<section class="about" id="about">
-<h2>About Us</h2>
-<p>Za Royal Wood is dedicated to crafting premium wooden furniture and interiors that combine timeless elegance with modern design. With years of expertise, we ensure high-quality craftsmanship and tailor-made solutions for your home and office.</p>
-</section>
+  <footer>
 
-<!-- Services -->
-<section class="services" id="services">
-<h2>Our Services</h2>
-<div class="service-box">
-<div class="service"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Custom Furniture"><h3>Custom Furniture</h3><p>Bespoke furniture designed to match your style.</p></div>
-<div class="service"><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf4RwM0fZ8E7iRo7H-zpmtsn4C5jZ_t5c_UgLB-ZhDoZ36MWN-WTG5pSRJnewqOKadEmlRrFFdLD726BPt7VMIXzL0CSsRsLdW31EPo7JBAV6wHaiLbhqTv_aymSca190FxEcE?key=UB0ofX9hzstyvf9pPHYNVw" alt="Interior"><h3>Interior Design</h3><p>Transform your living spaces with creativity.</p></div>
-<div class="service"><img src="https://algedra.com.tr/assets/imgs/upload2/space%20planning%20amended%20blog/spaceplanningininteriordesig_680a1aaabe399.jpg" alt="Delivery"><h3> Green Interior Modern Sofa Stock</h3><p>for all your orders.</p></div>
-</div>
-</section>
-
-<!-- Gallery -->
-<section class="gallery" id="gallery">
-<h2>Our Gallery</h2>
-<div class="gallery-box">
-<img src="https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/bedroom_wardrobe_design_03_6ed6ee2f08.webp" alt="Gallery1" onclick="openModal(this.src)">
-<img src="https://cdn.shopify.com/s/files/1/0096/4594/9013/files/Bedroom_Sets_Design_Design_Of_Bed_Room_Modern_Designs_Of_Bed_Simple_Designs_Of_Bed_f09db2d9-6ca0-4500-8041-f60321398b14.jpg?v=1651294704" alt="Gallery2" onclick="openModal(this.src)">
-<img src="https://www.nobroker.in/blog/wp-content/uploads/2025/01/tv-panel-design-with-concealed-storage-1200x673.webp" alt="Gallery3" onclick="openModal(this.src)">
-</div>
-</section>
-
-<!-- Testimonials -->
-<!-- <section class="testimonials" id="testimonials">
-<h2>Client Testimonials</h2>
-<div class="testimonial-box">
-<div class="testimonial active">
-<p>"Za Royal Wood transformed my living room into a luxurious space. Excellent quality and service!"</p>
-<h4>- Priya S.</h4>
-</div>
-<div class="testimonial">
-<p>"Custom furniture made exactly as I imagined. Highly recommend their professional team."</p>
-<h4>- Raj K.</h4>
-</div>
-<div class="testimonial">
-<p>"Fast delivery and premium craftsmanship. Very satisfied with my office furniture."</p>
-<h4>- Anil M.</h4>
-</div>
-</div>
-</section> -->
-
-<!-- Contact -->
-<section class="contact" id="contact">
-<h2>Contact Us</h2>
-<form onsubmit="alert('Thank you! We will contact you soon.'); return false;">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea rows="5" placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
-</section>
-
-<!-- Footer -->
-<!-- <footer>
-<p>&copy; 2025 Za Royal Wood | All Rights Reserved</p>
-</footer> -->
-
-<!-- Modal -->
-<div id="modal"><span onclick="closeModal()">&times;</span><img id="modal-img"></div>
-
-<!-- Scroll Button -->
-<button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
-
-<!-- JS -->
-<script>
-// Typewriter
-const texts=["Welcome to ZA ROYAL WOOD","Elegant Furniture for Your Home","Premium Quality Designs"];
-let tIndex=0,cIndex=0;const typeSpeed=100,waitTime=2000;const typeEl=document.getElementById("typewriter");
-function typeWriter(){if(cIndex<texts[tIndex].length){typeEl.textContent+=texts[tIndex].charAt(cIndex);cIndex++;setTimeout(typeWriter,typeSpeed);}else{setTimeout(eraseText,waitTime);}}
-function eraseText(){if(cIndex>0){typeEl.textContent=texts[tIndex].substring(0,cIndex-1);cIndex--;setTimeout(eraseText,50);}else{tIndex=(tIndex+1)%texts.length;setTimeout(typeWriter,500);}}
-typeWriter();
-
-// Scroll to top
-const scrollBtn=document.getElementById("scrollTopBtn");
-window.onscroll=function(){scrollBtn.style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?"block":"none";};
-
-// Modal
-function openModal(src){document.getElementById('modal').style.display='flex';document.getElementById('modal-img').src=src;}
-function closeModal(){document.getElementById('modal').style.display='none';}
-
-// Testimonials slider
-let testimonialIndex=0;
-const testimonials=document.querySelectorAll('.testimonial');
-setInterval(()=>{testimonials[testimonialIndex].classList.remove('active');testimonialIndex=(testimonialIndex+1)%testimonials.length;testimonials[testimonialIndex].classList.add('active');},5000);
-
-// Scroll to top
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
-</script>
+  </footer>
+  <script>
+    function submitForm(e) {
+      e.preventDefault();
+      const status = document.getElementById('status');
+      status.textContent = 'Message sent! (demo)';
+      e.target.reset();
+    }
+    // Typewriter
+   const texts = ["Welcome to ZA ROYAL WOOD", "Elegant Furniture for Your Home", "Premium Quality Designs"];
+    let tIndex = 0, cIndex = 0; const typeSpeed = 100, waitTime = 2000; const typeEl = document.getElementById("typewriter");
+    function typeWriter() { if (cIndex < texts[tIndex].length) { typeEl.textContent += texts[tIndex].charAt(cIndex); cIndex++; setTimeout(typeWriter, typeSpeed); } else { setTimeout(eraseText, waitTime); } }
+    function eraseText() { if (cIndex > 0) { typeEl.textContent = texts[tIndex].substring(0, cIndex - 1); cIndex--; setTimeout(eraseText, 50); } else { tIndex = (tIndex + 1) % texts.length; setTimeout(typeWriter, 500); } }
+    typeWriter(); 
+  </script>
 </body>
+
 </html>
