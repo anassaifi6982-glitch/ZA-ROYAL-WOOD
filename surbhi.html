@@ -1,242 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Gallery | Mohd Anas</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Gallery Slider</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: (255, 255, 255);
+    margin: 0;
+    padding: 20px;
+  }
 
-    body {
-      background: #494949;
-      color: rgb(255, 255, 255);
-      padding: 20px;
-    }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+  }
 
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 40px 0 20px;
-      position: relative;
-      animation: fadeInDown 1s ease;
-    }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  .gallery-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
 
-    .gallery-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-bottom: 40px;
-    }
+  .gallery-container::-webkit-scrollbar {
+    height: 10px;
+  }
 
-    .gallery-row img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
+  .gallery-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
 
-    .gallery-row img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
+  .gallery-item {
+    min-width: 300px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
 
-    /* Zoom Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-    }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 
-    .modal img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 15px;
-      animation: zoomIn 0.5s ease;
-    }
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
 
-    @keyframes zoomIn {
-      from {transform: scale(0);}
-      to {transform: scale(1);}
-    }
+  /* Zoom Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
 
-    .close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 35px;
-      color: white;
-      cursor: pointer;
-    }
-  
-  </style>
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    animation: zoomIn 0.5s ease;
+  }
+
+  @keyframes zoomIn {
+    from {transform: scale(0.5); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+</style>
 </head>
-<body> 
-    
+<body>
 
-  <!-- 8–10 Rows -->
-  <h2>Our Wood & Panel Ceiling</h2>
-  <div class="gallery-row">
-    <img src="https://media.designcafe.com/wp-content/uploads/2023/04/26161343/Bedroom-pvc-ceiling-design-in-wooden-texture.jpg" alt="">
-    <img src="https://artfasad.com/wp-content/uploads/2023/10/pvc-panel-ceiling-design-for-bedroom-11.jpg.webp" alt="">
-    <img src="https://img.interiorcompany.com/interior/webproduct/848638709055075607936.png?aio=w-768;" alt="">
-    <img src="https://images.livspace-cdn.com/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jas-1657179080-NnXAg/mbr-1657190156-S8bl9/69-1663826670-qe6VM.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/75/e5/99/75e599019e798baf5fc4bccdfec79635.jpg" alt="">
-    <img src="https://i.ytimg.com/vi/CQ3MVNBetf8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1XRxZfrHor7MHHnTroOI0wsG3AQ" alt="">
-    <img src="https://5.imimg.com/data5/ANDROID/Default/2021/1/QN/KO/BA/12200808/prod-20210125-0742384762653288440261473-jpg.jpg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/463319436/SH/KZ/IK/76279922/pvc-ceiling-panels-500x500.jpeg" alt="">
-    <img src="https://images.kreatecube.com/usefull/vendor/12155/Gallery/2169.jpg?tr=f-webp" alt="">
-    <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/white-coated-pvc-ceiling-design-for-hall-thickness-12-20230911094229.jpg" alt="">
-    
-    
+<h2>Our Wood & Panel Ceiling</h2>
+
+<div class="gallery-container">
+  <div class="gallery-item"><img src="https://media.designcafe.com/wp-content/uploads/2023/04/26161343/Bedroom-pvc-ceiling-design-in-wooden-texture.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://artfasad.com/wp-content/uploads/2023/10/pvc-panel-ceiling-design-for-bedroom-11.jpg.webp" alt=""></div>
+     <div class="gallery-item"><img src="https://img.interiorcompany.com/interior/webproduct/848638709055075607936.png?aio=w-768;" alt=""></div>
+     <div class="gallery-item"><img src="https://images.livspace-cdn.com/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jas-1657179080-NnXAg/mbr-1657190156-S8bl9/69-1663826670-qe6VM.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://i.pinimg.com/736x/75/e5/99/75e599019e798baf5fc4bccdfec79635.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://i.ytimg.com/vi/CQ3MVNBetf8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1XRxZfrHor7MHHnTroOI0wsG3AQ" alt=""></div>
+     <div class="gallery-item"> <img src="https://5.imimg.com/data5/ANDROID/Default/2021/1/QN/KO/BA/12200808/prod-20210125-0742384762653288440261473-jpg.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/463319436/SH/KZ/IK/76279922/pvc-ceiling-panels-500x500.jpeg" alt=""></div>
+     <div class="gallery-item"> <img src="https://images.kreatecube.com/usefull/vendor/12155/Gallery/2169.jpg?tr=f-webp" alt=""></div>
+     <div class="gallery-item"><img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/white-coated-pvc-ceiling-design-for-hall-thickness-12-20230911094229.jpg" alt="">
+     </div>
   </div>
+  <h2>Our Wood kitchen design</h2>
 
-  <h2>Our Wood kitchen design </h2>
-  <div class="gallery-row">
-    <img src="https://media.designcafe.com/wp-content/uploads/2020/10/31120130/wooden-modular-kitchen-design.jpg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/375504357/XR/VN/UT/191113573/wooden-modular-kitchen-cabinets-500x500.jpeg" alt="">
-    <img src="https://i.pinimg.com/474x/bb/a6/d1/bba6d14f27cba3f3b4e04eaeb73ad1cf.jpg" alt="">
-    <img src="https://media.designcafe.com/wp-content/uploads/2020/10/30144224/contemporary-classic-kitchen-cabinets.jpg" alt="">
-    <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/modular-kitchen-cabinets-20250204122336844.png" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448001433/TZ/QP/JI/69172600/modular-kitchen-cabinets-500x500.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/79/5f/c9/795fc9d08bc54821c85e5397098571e6.jpg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/447230980/FH/QW/BO/79672000/modern-kitchen.jpg" alt="">
-    <img src="https://i.pinimg.com/564x/5f/d0/02/5fd002372aa8b1d9a4a872eb39b581f4.jpg" alt="">
-    <img src="https://i.pinimg.com/originals/9f/17/ef/9f17efaf6602c74944c6729db221e5aa.jpg" alt="">
+<div class="gallery-container">
+  <div class="gallery-item"><img src="https://media.designcafe.com/wp-content/uploads/2020/10/31120130/wooden-modular-kitchen-design.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2024/1/375504357/XR/VN/UT/191113573/wooden-modular-kitchen-cabinets-500x500.jpeg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/474x/bb/a6/d1/bba6d14f27cba3f3b4e04eaeb73ad1cf.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://media.designcafe.com/wp-content/uploads/2020/10/30144224/contemporary-classic-kitchen-cabinets.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/modular-kitchen-cabinets-20250204122336844.png" alt=""></div>
+     <div class="gallery-item"> <img src="https://i.pinimg.com/736x/79/5f/c9/795fc9d08bc54821c85e5397098571e6.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448001433/TZ/QP/JI/69172600/modular-kitchen-cabinets-500x500.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/447230980/FH/QW/BO/79672000/modern-kitchen.jpg" alt=""></div>
+     <div class="gallery-item"> <img src="https://i.pinimg.com/564x/5f/d0/02/5fd002372aa8b1d9a4a872eb39b581f4.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/originals/9f/17/ef/9f17efaf6602c74944c6729db221e5aa.jpg" alt="">
+     </div>
   </div>
-
   <h2>Our Luxury Bedrooms</h2>
-  <div class="gallery-row">
-    <img src="https://m.media-amazon.com/images/I/711BSErd3lL._UF894,1000_QL80_.jpg" alt="">
-    <img src="https://i.pinimg.com/1200x/9e/ee/ce/9eeeced00a2d043c9f35ffdfd9e67ebf.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/8c/b4/71/8cb4710459e3d9d1e6cef3b6c69759a7.jpg" alt="">
-    <img src="https://woodentwist.com/cdn/shop/products/untitled.1274.jpg?v=1743288748" alt="">
-    <img src="https://www.ryancreativeliving.com/wp-content/uploads/2024/11/Platform-Beds-%E2%80%93-Sleek-and-Modern.jpg" alt="">
-    <img src="https://images.woodenstreet.de/image/cache/data/bed-with-storage/ferguson-bed-with-storage/walnut/updated/new-logo/new+-3D/12-750x650.jpg" alt="">
-    <img src="https://media.designcafe.com/wp-content/uploads/2024/01/24175345/modern-luxury-bedroom-design-ideas.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/b1/28/0d/b1280dc30198b9710e78928b5dd34ada.jpg" alt="">
-    <img src="https://media.designcafe.com/wp-content/uploads/2024/12/22212848/bedroom-trends-2025.jpg" alt="">
-    <img src="https://static.asianpaints.com/content/dam/asianpaintsbeautifulhomes/gallery/bedroom/modern-minimal-master-bedroom-with-fluted-wall-paneling-and-wooden-sliding-wardrobe/luxury-bedroom-with-elegant-decor.jpg.transform/bh-gallery-listing/image.webp" alt="">
+  <div class="gallery-container">
+     <div class="gallery-item"><img src="https://m.media-amazon.com/images/I/711BSErd3lL._UF894,1000_QL80_.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/1200x/9e/ee/ce/9eeeced00a2d043c9f35ffdfd9e67ebf.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/736x/8c/b4/71/8cb4710459e3d9d1e6cef3b6c69759a7.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://woodentwist.com/cdn/shop/products/untitled.1274.jpg?v=1743288748" alt=""></div>
+     <div class="gallery-item"><img src="https://www.ryancreativeliving.com/wp-content/uploads/2024/11/Platform-Beds-%E2%80%93-Sleek-and-Modern.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://images.woodenstreet.de/image/cache/data/bed-with-storage/ferguson-bed-with-storage/walnut/updated/new-logo/new+-3D/12-750x650.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://media.designcafe.com/wp-content/uploads/2024/01/24175345/modern-luxury-bedroom-design-ideas.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/736x/b1/28/0d/b1280dc30198b9710e78928b5dd34ada.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://media.designcafe.com/wp-content/uploads/2024/12/22212848/bedroom-trends-2025.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://static.asianpaints.com/content/dam/asianpaintsbeautifulhomes/gallery/bedroom/modern-minimal-master-bedroom-with-fluted-wall-paneling-and-wooden-sliding-wardrobe/luxury-bedroom-with-elegant-decor.jpg.transform/bh-gallery-listing/image.webp" alt=""></div>
   </div>
-
   <h2>Build an office from Wood</h2>
-  <div class="gallery-row">
-    <img src="https://cdn.decorilla.com/online-decorating/wp-content/uploads/2020/12/Zoom-ready-home-office-backgrounds-by-Decorilla-1024x574.jpg?width=900" alt="">
-    <img src="https://www.marazzitile.co.uk/app/uploads/2025/06/Marazzi_Room_010-1350x759.jpg" alt="">
-    <img src="https://royaletouche.gumlet.io/wp-content/uploads/2024/09/27123301/interior-design-for-office1.jpg?compress=true&quality=80&w=1500&dpr=2.6" alt="">
-    <img src="https://cargaison-brands.stream.prepr.io/4ma6285la496/w_1099/boss-cabin-interior-design.jpg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2021/9/OW/NW/XF/17251528/office-interior-designing-service-1000x1000.jpg" alt="">
-    <img src="https://www.magicspacedesigns.com/wp-content/uploads/2025/07/small-office-interior-design-ideas.webp" alt="">
-    <img src="https://i.pinimg.com/736x/45/ea/c8/45eac872d6bbc3428a8e30006a99c400.jpg" alt="">
-    <img src="https://royaletouche.gumlet.io/wp-content/uploads/2024/09/27123301/interior-design-for-office1.jpg?compress=true&quality=80&w=1500&dpr=2.6" alt="">
-    <img src="https://i.pinimg.com/736x/b1/a7/ca/b1a7caa5393b4b940a2e1a5f2abc8e07.jpg" alt="">
-    <img src="https://i.ytimg.com/vi/-Q29ASdaSHE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDmDKkx4WLMsRyYXGZVT32r89_mkA" alt="">
+  <div class="gallery-container">
+     <div class="gallery-item"><img src="https://cdn.decorilla.com/online-decorating/wp-content/uploads/2020/12/Zoom-ready-home-office-backgrounds-by-Decorilla-1024x574.jpg?width=900" alt=""></div>
+     <div class="gallery-item"><img src="https://www.marazzitile.co.uk/app/uploads/2025/06/Marazzi_Room_010-1350x759.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://royaletouche.gumlet.io/wp-content/uploads/2024/09/27123301/interior-design-for-office1.jpg?compress=true&quality=80&w=1500&dpr=2.6" alt=""></div>
+     <div class="gallery-item"><img src="https://cargaison-brands.stream.prepr.io/4ma6285la496/w_1099/boss-cabin-interior-design.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2021/9/OW/NW/XF/17251528/office-interior-designing-service-1000x1000.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://www.magicspacedesigns.com/wp-content/uploads/2025/07/small-office-interior-design-ideas.webp" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/736x/45/ea/c8/45eac872d6bbc3428a8e30006a99c400.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://royaletouche.gumlet.io/wp-content/uploads/2024/09/27123301/interior-design-for-office1.jpg?compress=true&quality=80&w=1500&dpr=2.6" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/736x/b1/a7/ca/b1a7caa5393b4b940a2e1a5f2abc8e07.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.ytimg.com/vi/-Q29ASdaSHE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDmDKkx4WLMsRyYXGZVT32r89_mkA" alt=""></div>
+  </div>
+    <h2>Our LCD Panel desing</h2>
+  <div class="gallery-container">
+    <div class="gallery-item"><img src="https://www.madonnahomesolutions.com/wp-content/uploads/2022/03/68000.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://assets-news.housing.com/news/wp-content/uploads/2022/11/25102520/image5-92.png" alt=""></div>
+    <div class="gallery-item"><img src="https://i.pinimg.com/736x/10/11/5f/10115ff87c0d28d48afb80f49e5e43c1.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://www.regalokitchens.com/images/design/lcd-panel/02.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://lavispace.com/wp-content/uploads/2024/06/LCD-Panel-Design-for-Living-Room-1-1024x1024.png" alt=""></div>
+    <div class="gallery-item"><img src="https://i.pinimg.com/736x/76/de/7b/76de7b42c6e5c664ee7c9b6eed1d3b45.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://cpimg.tistatic.com/9433218/b/4/luxury-lcd-panel.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://i.ytimg.com/vi/THorKzmPN9Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCpo6A1cgocVUH558L6BfcpHBcTVA" alt=""></div>
+    <div class="gallery-item"><img src="https://kitcheninterio.co.in/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-13-at-2.39.33-PM-1.jpeg" alt=""></div>
+    <div class="gallery-item"><img src="https://noidahomesinterior.com/images/tv6.jpg" alt=""></div>
+  </div>  
+  <h2>Our Wooden Doors</h2>
+  <div class="gallery-container">
+    <div class="gallery-item"><img src="https://goltava.com/wp-content/uploads/2024/05/Buy-New-Design-Single-Wood-Door-Simple-Designs-House-Hotel-Indoor-Room-HDF-Flush-Doors-in-Nigeria-Online.png" alt=""></div>
+    <div class="gallery-item"><img src="https://images.livspace-cdn.com/w:3840/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/design-ideas-thumbnails-1628773921-7vSz1/jas-2025-1752131881-hKij1/dd-1752137576-R3Kbr/31-1757089805-i2MqK.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://m.media-amazon.com/images/I/71Ebq+Y3GfL.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://s.alicdn.com/@sc04/kf/Hf80e979483484e0096fe771fd0b6c8928/China-Top-Factory-Customization-Front-Wood-Door-Teak-Wood-Single-Door-Design-House-Exterior-Entrance-Timber-Pivot-Door.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://m.media-amazon.com/images/I/71Ws9h9ujCL._UF894,1000_QL80_.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://assets-news.housing.com/news/wp-content/uploads/2023/03/24150126/Single-door-design-ideas-for-your-house-entrance-09.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/interior-veneer-door--for-h-20240524131652783.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://img.freepik.com/free-vector/door-set-with-realistic-isolated-images-modern-room-door-models-with-handles-blank-background-vector-illustration_1284-84970.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://i.pinimg.com/736x/61/0e/89/610e893c798b97db77ae9c2b61de4ab9.jpg" alt=""></div>
+    <div class="gallery-item"><img src="https://images.jdmagicbox.com/quickquotes/images_main/-xa5543nw.jpg" alt=""></div>
+  </div>  
+  </div> 
+      <h2>Our Wooden Almirah & Coward desing</h2>
+  <div class="gallery-container">
+     <div class="gallery-item"><img src="https://i.pinimg.com/564x/72/95/7b/72957b007831bdff661001ff22066066.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://assets-news.housing.com/news/wp-content/uploads/2022/12/25033532/Trending-small-almirah-designs-7.png" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2025/8/536431531/ER/AH/US/90210709/maroon-wooden-wall-fixing-almirah.jpeg" alt=""></div>
+     <div class="gallery-item"><img src="https://m.media-amazon.com/images/I/71uA69gi50L._UF894,1000_QL80_.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://www.99acres.com/microsite/wp-content/blogs.dir/6161/files/2023/06/MDF-Almirah-Design.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1672137233327-37b0c1049e77?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FyZHJvYmUlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2025/5/511973873/ME/LI/BV/222978499/modular-wooden-wardrobe.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://materialdepot-images-hbh2cjbvbtfmanhx.z02.azurefd.net/application_image/scandi-chic-brown-white-wardrobe-design.jpg?width=1200" alt=""></div>
+     <div class="gallery-item"><img src="https://sc04.alicdn.com/kf/H4f8af685f3a24edca2370017e91cc3fft.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2022/12/UM/ZH/HQ/22248056/kids-almirah.jpeg" alt=""></div>
+  </div>
+      <h2>Our Wooden Dressing Tables desing</h2>
+  <div class="gallery-container">
+     <div class="gallery-item"><img src="https://i.ytimg.com/vi/jJthXkl-91U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLApAHxUtBgh8ttEjFthV0Ol99fbOg" alt=""></div>
+     <div class="gallery-item"><img src="https://5.imimg.com/data5/SELLER/Default/2023/4/303490030/UN/HO/GZ/134644416/modular-wooden-dressing-table-500x500.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://image.made-in-china.com/365f3j00iOzlrMPASjqZ/New-Design-Modern-Home-Hotel-Bedroom-Furniture-Storage-Wooden-Dressing-Table-Dresser-with-Mirror-UL-22NF0457-.webp" alt=""></div>
+     <div class="gallery-item"><img src="https://img.tatacliq.com/images/i19//437Wx649H/MP000000023263557_437Wx649H_202408100035311.jpeg" alt=""></div>
+     <div class="gallery-item"><img src="https://www.zorin.co.in/cdn/shop/files/AutumnDresser_Liftstyle.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/564x/a9/da/98/a9da985af49319e60130d90ee2358d06.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://i.pinimg.com/736x/f4/2c/a6/f42ca6c68b853e3ec1c5d5a1873774b1.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://futurestiles.com/wp-content/uploads/2024/09/c5b29acad9a72bb229278769e9f2eb28-7-15.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://www.decorpot.com/images/1363408490top-10-impressive-modern-dressing-table-design-ideas-for-your-bedroom.jpg" alt=""></div>
+     <div class="gallery-item"><img src="https://www.decorpot.com/images/137576925113-creative-ideas-for-wardrobe-design-with-dressing-table-for-bedroom.jpg" alt=""></div>
   </div>
 
-  <h2>Our LCD Panel desing</h2>
-  <div class="gallery-row">
-    <img src="https://www.madonnahomesolutions.com/wp-content/uploads/2022/03/68000.jpg" alt="">
-    <img src="https://assets-news.housing.com/news/wp-content/uploads/2022/11/25102520/image5-92.png" alt="">
-    <img src="https://i.pinimg.com/736x/10/11/5f/10115ff87c0d28d48afb80f49e5e43c1.jpg" alt="">
-    <img src="https://www.regalokitchens.com/images/design/lcd-panel/02.jpg" alt="">
-    <img src="https://lavispace.com/wp-content/uploads/2024/06/LCD-Panel-Design-for-Living-Room-1-1024x1024.png" alt="">
-    <img src="https://i.pinimg.com/736x/76/de/7b/76de7b42c6e5c664ee7c9b6eed1d3b45.jpg" alt="">
-    <img src="https://cpimg.tistatic.com/9433218/b/4/luxury-lcd-panel.jpg" alt="">
-    <img src="https://i.ytimg.com/vi/THorKzmPN9Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCpo6A1cgocVUH558L6BfcpHBcTVA" alt="">
-    <img src="https://kitcheninterio.co.in/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-13-at-2.39.33-PM-1.jpeg" alt="">
-    <img src="https://noidahomesinterior.com/images/tv6.jpg" alt="">
-  </div>
-    <h2>Our Wooden Doors</h2>
-  <div class="gallery-row">
-    <img src="https://goltava.com/wp-content/uploads/2024/05/Buy-New-Design-Single-Wood-Door-Simple-Designs-House-Hotel-Indoor-Room-HDF-Flush-Doors-in-Nigeria-Online.png" alt="">
-    <img src="https://images.livspace-cdn.com/w:3840/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/design-ideas-thumbnails-1628773921-7vSz1/jas-2025-1752131881-hKij1/dd-1752137576-R3Kbr/31-1757089805-i2MqK.jpg" alt="">
-    <img src="https://m.media-amazon.com/images/I/71Ebq+Y3GfL.jpg" alt="">
-    <img src="https://s.alicdn.com/@sc04/kf/Hf80e979483484e0096fe771fd0b6c8928/China-Top-Factory-Customization-Front-Wood-Door-Teak-Wood-Single-Door-Design-House-Exterior-Entrance-Timber-Pivot-Door.jpg" alt="">
-    <img src="https://m.media-amazon.com/images/I/71Ws9h9ujCL._UF894,1000_QL80_.jpg" alt="">
-    <img src="https://assets-news.housing.com/news/wp-content/uploads/2023/03/24150126/Single-door-design-ideas-for-your-house-entrance-09.jpg" alt="">
-    <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/interior-veneer-door--for-h-20240524131652783.jpg" alt="">
-    <img src="https://img.freepik.com/free-vector/door-set-with-realistic-isolated-images-modern-room-door-models-with-handles-blank-background-vector-illustration_1284-84970.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/61/0e/89/610e893c798b97db77ae9c2b61de4ab9.jpg" alt="">
-    <img src="https://images.jdmagicbox.com/quickquotes/images_main/-xa5543nw.jpg" alt="">
-  </div>
-    <h2>Our Wooden Almirah & Coward desing</h2>
-  <div class="gallery-row">
-    <img src="https://i.pinimg.com/564x/72/95/7b/72957b007831bdff661001ff22066066.jpg" alt="">
-    <img src="https://assets-news.housing.com/news/wp-content/uploads/2022/12/25033532/Trending-small-almirah-designs-7.png" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2025/8/536431531/ER/AH/US/90210709/maroon-wooden-wall-fixing-almirah.jpeg" alt="">
-    <img src="https://m.media-amazon.com/images/I/71uA69gi50L._UF894,1000_QL80_.jpg" alt="">
-    <img src="https://www.99acres.com/microsite/wp-content/blogs.dir/6161/files/2023/06/MDF-Almirah-Design.jpg" alt="">
-    <img src="https://images.unsplash.com/photo-1672137233327-37b0c1049e77?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FyZHJvYmUlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/511973873/ME/LI/BV/222978499/modular-wooden-wardrobe.jpg" alt="">
-    <img src="https://materialdepot-images-hbh2cjbvbtfmanhx.z02.azurefd.net/application_image/scandi-chic-brown-white-wardrobe-design.jpg?width=1200" alt="">
-    <img src="https://sc04.alicdn.com/kf/H4f8af685f3a24edca2370017e91cc3fft.jpg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/UM/ZH/HQ/22248056/kids-almirah.jpeg" alt="">
-  </div>
-    <h2>Our Wooden Dressing Tables desing</h2>
-  <div class="gallery-row">
-    <img src="https://i.ytimg.com/vi/jJthXkl-91U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLApAHxUtBgh8ttEjFthV0Ol99fbOg" alt="">
-    <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/303490030/UN/HO/GZ/134644416/modular-wooden-dressing-table-500x500.jpg" alt="">
-    <img src="https://image.made-in-china.com/365f3j00iOzlrMPASjqZ/New-Design-Modern-Home-Hotel-Bedroom-Furniture-Storage-Wooden-Dressing-Table-Dresser-with-Mirror-UL-22NF0457-.webp" alt="">
-    <img src="https://img.tatacliq.com/images/i19//437Wx649H/MP000000023263557_437Wx649H_202408100035311.jpeg" alt="">
-    <img src="https://www.zorin.co.in/cdn/shop/files/AutumnDresser_Liftstyle.jpg" alt="">
-    <img src="https://i.pinimg.com/564x/a9/da/98/a9da985af49319e60130d90ee2358d06.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/f4/2c/a6/f42ca6c68b853e3ec1c5d5a1873774b1.jpg" alt="">
-    <img src="https://futurestiles.com/wp-content/uploads/2024/09/c5b29acad9a72bb229278769e9f2eb28-7-15.jpg" alt="">
-    <img src="https://www.decorpot.com/images/1363408490top-10-impressive-modern-dressing-table-design-ideas-for-your-bedroom.jpg" alt="">
-    <img src="https://www.decorpot.com/images/137576925113-creative-ideas-for-wardrobe-design-with-dressing-table-for-bedroom.jpg" alt="">
-  </div>
 
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <span class="close" id="close">&times;</span>
-    <img id="modalImg" src="">
-  </div>
 
-  <script>
-    const images = document.querySelectorAll('.gallery-row img');
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    const closeBtn = document.getElementById('close');
+ 
 
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        modalImg.src = img.src;
-      });
+<!-- Modal for Zoom -->
+<div class="modal" id="modal">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <img id="modalImg" src="">
+</div>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const closeBtn = document.getElementById('closeBtn');
+  const items = document.querySelectorAll('.gallery-item img');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = item.src;
     });
+  });
 
-    closeBtn.addEventListener('click', () => {
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
       modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-  </script>
+    }
+  });
+</script>
 
 </body>
 </html>
